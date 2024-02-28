@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Login and Registration</title>
+</head>
+<body>
+    <div class="container">
+        <div class="register_box">
+            <h2>Register</h2>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            <div class="box1">
+                <form action="/register" method="post">
+                    <input type="hidden" name="user_id" value="user.id">
+                    <label for="first_name">First Name: </label>
+                    <input type="text" name="first_name" id="first_name_id">
+                    <label for="last_name">Last Name: </label>
+                    <input type="text" name="last_name" id="last_name_id">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email_id">
+                    <div>
+                        <input type="radio" name="gender" id="gender_id" value="male">
+                        <label for="gender">Male </label>
+                        <input type="radio" name="gender" id="gender_id">
+                        <label for="gender" value="female">Female</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="agree_to_terms" id="agree_id" value="1">
+                        <label for="agree_to_terms">I agree to terms </label>
+                    </div>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password_id">
+                    <label for="confirm_password">Confirm Password: </label>
+                    <input type="password" name="confirm_password" id="confirm_p_id">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+        <div class="login_box">
+            <h2>Login</h2>
+            <div class="box1">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/login" method="post">
+                    <label for="email">Email: </label>
+                    <input type="text" name="email" id="email_id">
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password_id">
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

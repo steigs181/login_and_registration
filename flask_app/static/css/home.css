@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.container .register_box {
+    height: 60%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box1 {
+    height: 100%;
+    width: 100%;
+    background-color: peachpuff;
+    display:flex;
+    flex-direction: column;
+}
+
+.box1 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container .login_box {
+    height: 60%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
